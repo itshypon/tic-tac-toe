@@ -6,7 +6,8 @@ const startCells = [
     "", "", "", "", "", "", "", "", ""
 ]
 let go = "circle"
-infoDisplay.textContent = "Circle goes first"
+infoDisplay.textContent = "Circle's Turn"
+infoDisplay.style.fontWeight = 'bold'
 
 function createBoard(){
     startCells.forEach((_cell, index) => {
