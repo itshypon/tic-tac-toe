@@ -1,11 +1,13 @@
 
 const gameBoard = document.querySelector('.gameboard')
 const infoDisplay = document.querySelector('#info')
+document.querySelector('.reset').addEventListener('click', reset)
+let count = 0;
 
 const startCells = [
     "", "", "", "", "", "", "", "", ""
 ]
-let go = "circle"
+let go = "Circle"
 infoDisplay.textContent = "Circle's Turn"
 infoDisplay.style.fontWeight = 'bold'
 
@@ -24,9 +26,10 @@ function addGo(e){
     const goDisplay = document.createElement('div')
     goDisplay.classList.add(go)
     e.target.append(goDisplay)
-    go = go === 'circle' ? 'cross' : 'circle'
-    infoDisplay.textContent = "It is now " + go + "'s turn."
+    go = go === 'Circle' ? 'Cross' : 'Circle'
+    infoDisplay.textContent = go + "'s Turn"
     e.target.removeEventListener('click', addGo)
+    count++
     checkScore()
 }
 
@@ -39,23 +42,36 @@ function checkScore() {
     ]
 
     winningCombos.forEach(array => {
-        const circleWins = array.every(cell => allSquares[cell].firstChild?.classList.contains('circle'))
+        const circleWins = array.every(cell => allSquares[cell].firstChild?.classList.contains('Circle'))
         if (circleWins) {
             infoDisplay.textContent = "Circle Wins"
             allSquares.forEach(square => square.replaceWith(square.cloneNode(true)))
+            return
         }
     })
 
     winningCombos.forEach(array => {
-        const crossWins = array.every(cell => allSquares[cell].firstChild?.classList.contains('cross'))
+        const crossWins = array.every(cell => allSquares[cell].firstChild?.classList.contains('Cross'))
         
         if (crossWins) {
-            infoDisplay.textContent = "Cross  Wins"
+            infoDisplay.textContent = "Cross Wins"
             allSquares.forEach(square => square.replaceWith(square.cloneNode(true)))
+            return
         }
     })
+    if(count === 9) 
+        infoDisplay.textContent = "Draw !"
+       
 
     
+}
+
+function reset(){
+    const allSquares = document.querySelectorAll('.square')
+    allSquares.forEach(square => square.remove())
+    createBoard()
+    go = "Circle"
+    infoDisplay.textContent = "Circle's Turn"
 }
 
 

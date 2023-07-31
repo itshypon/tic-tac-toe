@@ -18,7 +18,7 @@
     align-items: center;
 }
 
-.circle {
+.Circle {
     height: 90px;
     width: 90px;
     border-radius: 50%;
@@ -26,26 +26,26 @@
     box-sizing: border-box;
 }
 
-.cross {
+.Cross {
     height: 90px;
     width: 90px;
     position: relative;
     transform: rotate(45deg);
 }
 
-.cross:before, .cross:after {
+.Cross:before, .Cross:after {
     content: "";
     position: absolute;
     background-color: black;
 }
 
-.cross:before {
+.Cross:before {
     left: 50%;
     width: 30%;
     margin-left: -15%;
     height: 100%;
 }
-.cross:after {
+.Cross:after {
     top: 50%;
     height: 30%;
     margin-top: -15%;

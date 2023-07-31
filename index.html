@@ -1,21 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe</title>
     <link rel="stylesheet" href="input.css">
 </head>
-<body class="m-0 p-0  h-[100vh] bg-yellow-300">
+
+<body class="m-0 p-0 h-[100vh] bg-yellow-300">
     <div class="navbar bg-black h-[100px] w-[100%] flex justify-center items-center">
         <p class="text-white text-4xl">Tic Tac Toe</p>
     </div>
-    <div class="hero flex flex-col justify-center items-center my-40">
-        <div class="gameboard w-[300px] h-[300px] flex flex-row flex-wrap bg-black box-border border-black border-2"></div>
-        <p id="info" class="text-3xl my-2"></p>
+    <div class="hero flex md:flex-row flex-col justify-between items-center mx-[25rem] my-56">
+        <div class="col-1">
+            <div
+                class="gameboard w-[300px] h-[300px] flex flex-row flex-wrap justify-center bg-black box-border border-black border-2">
+            </div>
+        </div>
+        <div class="vertical-line hidden md:block bg-black w-[1px] h-[200px] mx-10">
+
+        </div>
+        <div class="col-3">
+            <p id="info" class="text-4xl my-2"></p>
+            <div class="reset flex justify-center my-4">
+                <button class="bg-black text-white px-8 py-2 font-bold rounded text-xl">Reset</button>
+            </div>
+        </div>
     </div>
-    
+
+
 
     <script src="index.js"></script>
 </body>
+
 </html>
